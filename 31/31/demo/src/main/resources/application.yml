@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://dpg-ctheis1opnds73b36g5g-a.oregon-postgres.render.com/homeworksql
+    username: homeworksql_user
+    password: X8WGYJOgEzFOJegacacQQ0h4XgXi249p
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true

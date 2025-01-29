@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Submission</title>
+    <script>
+        async function submitPrescription() {
+            const doctorId = document.getElementById('doctorId').value;
+            const medicine = document.getElementById('medicine').value;
+            const patientId = document.getElementById('patientId').value;
+
+            const response = await fetch('http://your-backend-api-url/prescriptions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer your-jwt-token',
+                },
+                body: JSON.stringify({
+                    doctorId: doctorId,
+                    medicine: medicine,
+                    patientId: patientId
+                })
+            });
+
+            if (response.ok) {
+                alert('Prescription Submitted Successfully!');
+            } else {
+                alert('Failed to Submit Prescription');
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Prescription Submission</h1>
+<form id="prescriptionForm">
+    <label for="doctorId">Doctor ID:</label>
+    <input type="text" id="doctorId" required>
+    <br>
+
+    <label for="medicine">Medicine:</label>
+    <input type="text" id="medicine" required>
+    <br>
+
+    <label for="patientId">Patient ID:</label>
+    <input type="text" id="patientId" required>
+    <br><br>
+
+    <button type="button" onclick="submitPrescription()">Submit Prescription</button>
+</form>
+</body>
+</html>

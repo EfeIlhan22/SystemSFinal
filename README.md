@@ -14,35 +14,34 @@ A microservice-based application for managing doctors, patients, prescriptions, 
 
 ## Services
 - **Authentication Service**: Manages user authentication and JWT.
-- **Doctor Service**: Manages doctor info and prescription creation.
+- **Doctor Service**: Manages prescription creation.
 - **Pharmacy Service**: Handles prescription submission.
 - **Medicine Service**: Provides medicine search and autocomplete.
-- **Notification Service**: Sends notifications for missing prescriptions.
+- **Notification Service**: Sends notifications for prescriptions with empty medicines.
 - **Queue Service**: Manages asynchronous messaging.
-- **Cache Service**: Implements Redis caching for medicines.
+- **Cache Service**: Implements MongoCache caching for medicines.
 - **API Gateway**: Routes requests to relevant services.
 
 ## Technologies
-- **Backend**: Spring Boot
+- **Backend**: SpringBoot
 - **Queue**: RabbitMQ
-- **Cache**: Redis
+- **Cache**: MongoCache
 - **Database**: PostgreSQL & MongoDB
 - **Containerization**: Docker
 
 ## API Endpoints
 
 ### Authentication:
-- `POST /api/v1/auth/login`: Authenticate user and issue JWT.
-- `POST /api/v1/auth/register`: Register a new user.
+- `POST /api/v1/auth/login`: Puts JWT in header
+- `POST /api/v1/auth/create`: Create a new doctor or pharmacy.
 
 ### Doctor:
-- `POST /api/v1/doctor/register`: Register a doctor.
-- `POST /api/v1/doctor/createPrescription`: Create a prescription.
+- `POST /doctor/v1/create`: Creates a prescription.
 
 ### Pharmacy:
-- `POST /api/v1/pharmacy/submitPrescription`: Submit a prescription.
-- `GET /api/v1/pharmacy/searchMedicine`: Search medicines.
+- `POST /pharmacy/v1/update`: Submits a prescription.
+### Prescription
+- `GET /prescription/v1/prescription`:Gets the prescription with the id given
 
 ### Medicine:
-- `POST /api/v1/medicines`: Add a new medicine.
 - `GET /api/v1/medicines/search`: Search medicines with autocomplete.

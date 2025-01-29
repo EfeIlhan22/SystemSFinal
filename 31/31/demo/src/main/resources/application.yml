@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-ctheis1opnds73b36g5g-a.oregon-postgres.render.com/homeworksql
-    username: homeworksql_user
-    password: X8WGYJOgEzFOJegacacQQ0h4XgXi249p
+    url: jdbc:postgresql://localhost:5432/doctor_db
+    username: postgres
+    password: 123
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

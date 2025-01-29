@@ -26,7 +26,7 @@ public class ExcelToMongoLoader {
 
     @PostConstruct
     public void loadData() throws IOException {
-        String filePath = "C:\\Users\\efeilhan\\Desktop\\31\\31\\MedicineService\\src\\main\\java\\com\\example\\medicineservice\\util\\medicine.xlsx";
+        String filePath = "C:\\Users\\efeilhan\\Documents\\GitHub\\SystemSFinal\\31\\31\\MedicineService\\src\\main\\java\\com\\example\\medicineservice\\util\\medicine.xlsx";
         List<Medicine> medicines = new ArrayList<>();
 
         try (Workbook workbook = new XSSFWorkbook(new FileInputStream(filePath))) {

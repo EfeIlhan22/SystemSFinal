@@ -1,7 +1,9 @@
 package com.example.demo.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
@@ -11,6 +13,8 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Prescription implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,17 +24,9 @@ public class Prescription implements Serializable {
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
+    private String patientTC;
 
-    @ManyToMany
-    @JoinTable(
-            name = "prescription_medicines",
-            joinColumns = @JoinColumn(name = "prescription_id"),
-            inverseJoinColumns = @JoinColumn(name = "medicine_id")
-    )
-    private List<Medicine> medicines; // Reçeteye eklenen ilaçlar
+
     private LocalDate issuedDate;
 
     // Getter ve Setter

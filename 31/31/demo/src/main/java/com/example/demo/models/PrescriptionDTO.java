@@ -8,8 +8,8 @@ import java.util.List;
 public class PrescriptionDTO implements Serializable {
     private Long id;
     private Long doctorId;        // Doktorun ID'si (ManyToOne bağımlılığı kaldırıldı)
-    private Long patientId;       // Hastanın ID'si (ManyToOne bağımlılığı kaldırıldı)
-    private List<Long> medicineIds; // İlaçların ID listesi
+    private String patientTC;       // Hastanın ID'si (ManyToOne bağımlılığı kaldırıldı)
+    private List<Medicine> medicines; // İlaçların ID listesi
     private LocalDate issuedDate;
 }
 
